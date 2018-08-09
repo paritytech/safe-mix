@@ -12,3 +12,13 @@ default = ["std"]
 std = []
 nightly = []
 strict = []
+
+[package]
+description = "Implementation of the Collective Coin Flip algorithm"
+documentation = "https://github.com/paritytech/safe-mix"
+homepage = "https://github.com/paritytech/safe-mix"
+repository = "https://github.com/paritytech/safe-mix"
+readme = "README.md"
+keywords = ["collective", "coin", "flip", "mixer"]
+categories = []
+license = "Apache-2.0"
