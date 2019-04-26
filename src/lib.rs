@@ -58,28 +58,26 @@ impl<I, T> TripletMix for I where
 	type Item = T;
 	fn triplet_mix(self) -> Self::Item {
 		let mut accum = [[T::default(); 3]; MAX_DEPTH];
-		let mut result = T::default();
-		for (i, seed) in self.enumerate() {
-			accum[0][i % 3] = seed;
-			let mut index_at_depth = i;
+        let mut depth_reached = 0;
+		for (mut index_at_depth, seed) in self.enumerate() {
+			accum[0][index_at_depth % 3] = seed;
 			for depth in 0..MAX_DEPTH {
 				if index_at_depth % 3 != 2 {
 					break;
 				}
 				index_at_depth /= 3;
-				result = sub_mix(&accum[depth]);
 
 				// end of the threesome at depth.
 				if depth == MAX_DEPTH - 1 {
 					// end of our stack - bail with result.
 					break;
-				} else {
-					// save in the stack for parent computation
-					accum[depth + 1][index_at_depth % 3] = result;
-				}
+                }
+				// save in the stack for parent computation
+				accum[depth + 1][index_at_depth % 3] = sub_mix(&accum[depth]);
+                if depth >= depth_reached { depth_reached = depth+1; }
 			}
 		}
-		result
+		accum[depth_reached][0]
 	}
 }
 
