@@ -1,6 +1,6 @@
 [package]
 name = "safe-mix"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Parity Technologies <admin@parity.io>"]
 build = "build.rs"
 description = "Implementation of the Collective Coin Flip algorithm"

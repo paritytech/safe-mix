@@ -17,7 +17,6 @@
 //! Described in http://www.cs.huji.ac.il/~nati/PAPERS/coll_coin_fl.pdf
 
 #![cfg_attr(not(feature = "std"), no_std)]
-#![cfg_attr(not(feature = "std"), feature(core_intrinsics))]
 
 #[cfg(feature = "std")]
 use std::ops::{BitAnd, BitOr};
