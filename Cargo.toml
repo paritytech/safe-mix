@@ -2,7 +2,6 @@
 name = "safe-mix"
 version = "1.0.1"
 authors = ["Parity Technologies <admin@parity.io>"]
-build = "build.rs"
 description = "Implementation of the Collective Coin Flip algorithm"
 documentation = "https://github.com/paritytech/safe-mix"
 homepage = "https://github.com/paritytech/safe-mix"
@@ -18,5 +17,3 @@ rustc_version = "0.2"
 [features]
 default = ["std"]
 std = []
-nightly = []
-strict = []
